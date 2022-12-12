@@ -16,15 +16,12 @@
         (map #(do [(first %1) (parse-string-or-nil (second %1))]) split-to-string)]
     split-to-int))
 
-
 (defn apply-instruction [register instr i]
   (let [[op arg] instr]
     ;; (prn "apply-1" i register op arg)
     (if (= "noop" op)
       [register]
       [(+ register arg) register])))
-
-(apply-instruction 3 ["noop" nil] 3)
 
 (defn apply-instructions
   ([instructions] (apply-instructions instructions 1 [1] 1))
@@ -48,4 +45,9 @@
     "X"
     "."))
 
-(map (partial reduce +) (partition 40 (mapv #(draw-pixel %1 %2) (flatten (repeat 6 (range 40))) history)))
+(map
+ (partial reduce +)
+ (partition 40
+            (mapv #(draw-pixel %1 %2)
+                  (flatten (repeat 6 (range 40)))
+                  history)))
