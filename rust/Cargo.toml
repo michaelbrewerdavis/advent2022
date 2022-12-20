@@ -6,7 +6,21 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [[bin]]
-name = "rust"
+name = "day14"
 path = "src/day14.rs"
 
+[[bin]]
+name = "day16"
+path = "src/day16.rs"
+
+[[bin]]
+name = "day19"
+path = "src/day19.rs"
+
+[[bin]]
+name = "day20"
+path = "src/day20.rs"
+
 [dependencies]
+memoize = "0.3.3"
+regex = "1.7.0"
